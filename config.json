@@ -1,0 +1,8 @@
+{
+    "token": "token-here",
+    "notification": true,
+
+    "nitro_sniper": true, 
+    "giveaway_sniper": true,
+    "privnote_sniper": true
+}
