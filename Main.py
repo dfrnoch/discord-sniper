@@ -1,12 +1,11 @@
-import discord, subprocess, sys, time, os, colorama, datetime, io, random, numpy, smtplib, string, ctypes
-import re, json, requests, webbrowser, aiohttp, asyncio
+import discord, sys, time, os, colorama, datetime, io, ctypes
+import re, json, requests
 
 from discord.ext import (
     commands,
     tasks
 )
 
-from threading import Thread
 from colorama import Fore
 from win10toast import ToastNotifier
 import pyPrivnote as pn
@@ -23,12 +22,6 @@ slotbot_sniper = config.get('slotbot_sniper')
 nitro_sniper = config.get('nitro_sniper')
 privnote_sniper = config.get('privnote_sniper')
 notification = config.get('notification')
-
-width = os.get_terminal_size().columns
-hwid = subprocess.check_output('wmic csproduct get uuid').decode().split('\n')[1].strip()
-start_time = datetime.datetime.utcnow()
-loop = asyncio.get_event_loop()
-
 
 def startprint():
     if giveaway_sniper == True:
