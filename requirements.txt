@@ -1,6 +1,5 @@
 discord.py
 colorama
 requests
-aiohttp
 pyPrivnote
 win10toast
