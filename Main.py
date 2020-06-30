@@ -54,9 +54,9 @@ def startprint():
     print(f'''{Fore.RESET}
 
 
-                                               {Fore.GREEN}╔═╗  ╔╗╔  ╦  ╦═╗  ╦═╗  ╦═╗
-                                               {Fore.LIGHTBLACK_EX}╚═╗  ║║║  ║  ╠═╝  ╠╣   ╠╦╝
-                                               {Fore.WHITE}╚═╝  ╝╚╝  ╩  ╩    ╩═╝  ╩╚═
+                                             {Fore.GREEN}╔═╗  ╔╗╔  ╦  ╦═╗  ╦═╗  ╦═╗
+                                             {Fore.LIGHTBLACK_EX}╚═╗  ║║║  ║  ╠═╝  ╠╣   ╠╦╝
+                                             {Fore.WHITE}╚═╝  ╝╚╝  ╩  ╩    ╩═╝  ╩╚═
 
                                             
                                              {Fore.WHITE}Logged User     -  {Fore.GREEN}{Sniper.user.name}#{Sniper.user.discriminator}
@@ -93,9 +93,9 @@ def Init():
         except discord.errors.LoginFailure:
             print(f"""
             
-                                               {Fore.BLUE}╔═╗  ╔╗╔  ╦  ╦═╗  ╦═╗  ╦═╗
-                                               {Fore.LIGHTBLACK_EX}╚═╗  ║║║  ║  ╠═╝  ╠╣   ╠╦╝
-                                               {Fore.WHITE}╚═╝  ╝╚╝  ╩  ╩    ╩═╝  ╩╚═
+                                             {Fore.BLUE}╔═╗  ╔╗╔  ╦  ╦═╗  ╦═╗  ╦═╗
+                                             {Fore.LIGHTBLACK_EX}╚═╗  ║║║  ║  ╠═╝  ╠╣   ╠╦╝
+                                             {Fore.WHITE}╚═╝  ╝╚╝  ╩  ╩    ╩═╝  ╩╚═
             
             
             
