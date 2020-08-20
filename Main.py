@@ -371,6 +371,16 @@ async def on_message(message):
 async def on_connect():
     Clear()
 
+    if onalt == False:
+        onaltt = " "
+    else:
+        onaltt = f"{Fore.LIGHTBLACK_EX}({s_name}#{s_tag})"
+
+    if edelay == True:
+        ddelay = f"{Fore.LIGHTBLACK_EX}({delay} seconds)"
+    else:
+        ddelay = " "
+
     if giveaway_sniper == True:
         giveaway = "Active" 
     else:
@@ -381,10 +391,14 @@ async def on_connect():
     else:
         nitro = "Disabled"
 
+    if notification == True:
+        notify = "Active"
+    else:
+        notify = "Disabled"    
     if privnote_sniper == True:
         privnote = "Active"
     else:
-        privnote = "Disabled"    
+        privnote = "Disabled"  
     
     startprint()
     ctypes.windll.kernel32.SetConsoleTitleW(f'Discord Sniper - User: {Sniper.user.name} - Made by LnX')
