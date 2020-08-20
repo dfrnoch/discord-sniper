@@ -1,13 +1,13 @@
 {
-    "token": "your-token",
-    "on-alt": false,
-    "reedem-token": "your-token",
-    "notification": true,
+    "token": "your-token",          - Token, where selfbot runs
+    "on-alt": false,                - If you want to snipe nitro on alt account, enable this
+    "reedem-token": "your-token",   - Token that reedems nitro code (working if "on-alt" enabled)
+    "notification": true,           - Windows Notifications
 
-    "delay-enabled": false,
-    "delay": 5,
+    "delay-enabled": false,         - Giveaway Sniper Delay to looks more legit
+    "delay": 5,                     - Delay time in seconds
 
-    "nitro_sniper": true, 
-    "giveaway_sniper": true,
-    "privnote_sniper": true
+    "nitro_sniper": true,           - Enable Nitro Sniper
+    "giveaway_sniper": true,        - Enable Giveaway Sniper
+    "privnote_sniper": true         - enable Privnote Sniper
 }
