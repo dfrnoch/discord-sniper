@@ -29,7 +29,7 @@ nitro_sniper = config.get('nitro_sniper')
 privnote_sniper = config.get('privnote_sniper')
 notification = config.get('notification')
 
-def startprint():
+def codestart():
 
     headers = {
         'Authorization': rtoken,
@@ -400,7 +400,7 @@ async def on_connect():
     else:
         privnote = "Disabled"  
     
-    startprint()
+    codestart()
     ctypes.windll.kernel32.SetConsoleTitleW(f'Discord Sniper - User: {Sniper.user.name} - Made by LnX')
 
 
