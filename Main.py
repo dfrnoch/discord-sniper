@@ -16,8 +16,9 @@ toaster = ToastNotifier()
 with open('config.json') as f:
     config = json.load(f)
 
-token = config.get('token')
 onalt = config.get("on-alt")
+
+token = config.get('token')
 rtoken = config.get("reedem-token")
 
 edelay = config.get("delay-enabled")
@@ -30,22 +31,22 @@ privnote_sniper = config.get('privnote_sniper')
 notification = config.get('notification')
 
 def codestart():
+    if onalt == True:
+        headers = {
+            'Authorization': rtoken,
+            'Content-Type': 'application/json'
+        }
 
-    headers = {
-        'Authorization': rtoken,
-        'Content-Type': 'application/json'
-    }
-
-    res = requests.get('https://canary.discordapp.com/api/v6/users/@me', headers=headers)
-    res = res.json()
-    s_name = res['username']
-    s_tag = res['discriminator']
+        res = requests.get('https://canary.discordapp.com/api/v6/users/@me', headers=headers)
+        res = res.json()
+        sname = res['username']
+        stag = res['discriminator']
 
 
     if onalt == False:
         onaltt = " "
     else:
-        onaltt = f"{Fore.LIGHTBLACK_EX}({s_name}#{s_tag})"
+        onaltt = f"{Fore.LIGHTBLACK_EX}({sname}#{stag})"
 
     if edelay == True:
         ddelay = f"{Fore.LIGHTBLACK_EX}({delay} seconds)"
@@ -105,28 +106,39 @@ def Clear():
 Clear()
 
 def Init():
+    if onalt == True:
+        if config.get('token') == config.get('reedem-token'):
+            Clear()
+            print(f"\n\n{Fore.RED}Error {Fore.WHITE}Alt token connot be same as Reedem Token!"+Fore.RESET)
+            exit()
+        if rtoken == "token-here":
+            Clear()
+            print(f"\n\n{Fore.RED}Error {Fore.WHITE}You didnt put your alt token in the config.json file"+Fore.RESET)
+            exit()
+        else:
+            headers = {
+            'Authorization': rtoken,
+            'Content-Type': 'application/json'
+            }
+            r = requests.get('https://canary.discordapp.com/api/v6/users/@me', headers=headers)
+            if r.status_code == 200:
+                pass
+            else:
+                print(f"\n\n{Fore.RED}Error {Fore.WHITE}Alt Token is invalid"+Fore.RESET)
+                exit()
 
     if config.get('token') == "token-here":
-        
         Clear()
-        print(f"{Fore.RED}Error {Fore.WHITE}You didnt put your token in the config.json file"+Fore.RESET)
+        print(f"\n\n{Fore.RED}Error {Fore.WHITE}You didnt put your token in the config.json file"+Fore.RESET)
+        exit()
     else:
         token = config.get('token')
         try:
             Sniper.run(token, bot=False, reconnect=True)
             os.system(f'title Discord Sniper')
         except discord.errors.LoginFailure:
-            print(f"""
-            
-                                             {Fore.GREEN}╔═╗  ╔╗╔  ╦  ╦═╗  ╦═╗  ╦═╗
-                                             {Fore.LIGHTBLACK_EX}╚═╗  ║║║  ║  ╠═╝  ╠╣   ╠╦╝
-                                             {Fore.WHITE}╚═╝  ╝╚╝  ╩  ╩    ╩═╝  ╩╚═
-            
-            
-            
-            
-                            {Fore.RED}Error {Fore.WHITE}Token is invalid"""+Fore.RESET)
-            os.system('pause >NUL')
+            print(f"\n\n{Fore.RED}Error {Fore.WHITE}Token is invalid"+Fore.RESET)
+            exit()
 
 
 
@@ -371,35 +383,6 @@ async def on_message(message):
 async def on_connect():
     Clear()
 
-    if onalt == False:
-        onaltt = " "
-    else:
-        onaltt = f"{Fore.LIGHTBLACK_EX}({s_name}#{s_tag})"
-
-    if edelay == True:
-        ddelay = f"{Fore.LIGHTBLACK_EX}({delay} seconds)"
-    else:
-        ddelay = " "
-
-    if giveaway_sniper == True:
-        giveaway = "Active" 
-    else:
-        giveaway = "Disabled"
-
-    if nitro_sniper == True:
-        nitro = "Active"
-    else:
-        nitro = "Disabled"
-
-    if notification == True:
-        notify = "Active"
-    else:
-        notify = "Disabled"    
-    if privnote_sniper == True:
-        privnote = "Active"
-    else:
-        privnote = "Disabled"  
-    
     codestart()
     ctypes.windll.kernel32.SetConsoleTitleW(f'Discord Sniper - User: {Sniper.user.name} - Made by LnX')
 
