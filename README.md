@@ -5,8 +5,7 @@
 - Added giveaway join delay
 - Added Support to more giveaway bots
 - Fixed Privnote Sniper
-- Fixed Error Codes `(removed useless code)`
-- More info about Sniped
+- More info about Sniped Nitro
 - More customisability
 - Added **use on alt**, that means you can run sniper on alt account and if he snipes nitro, code will be reedemed on other account
 - Removed some useless code
