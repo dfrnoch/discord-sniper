@@ -5,8 +5,8 @@
 - Added giveaway join delay
 - Added Support to more giveaway bots
 - Fixed Privnote Sniper
-- Fixed Error Codes `removed useless code`
-- Added `use on alt`, that means you can run sniper on alt account and if he snipes nitro, code will be reedemed on other account
+- Fixed Error Codes `(removed useless code)`
+- Added **use on alt**, that means you can run sniper on alt account and if he snipes nitro, code will be reedemed on other account
 - Removed some useless code
 - If you have enable nitro reedem on other account or delay, it will show you on main page
 - Plans: Support to more giveaway bots, Better UI, More info about Sniped Nitro and Sniped Giveaway, Limited invite sniper, more customisability
