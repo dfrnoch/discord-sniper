@@ -6,12 +6,15 @@
 - Added Support to more giveaway bots
 - Fixed Privnote Sniper
 - Fixed Error Codes `(removed useless code)`
+- More info about Sniped
+- More customisability
 - Added **use on alt**, that means you can run sniper on alt account and if he snipes nitro, code will be reedemed on other account
 - Removed some useless code
 - If you have enable nitro reedem on other account or delay, it will show you on main page
-- Plans: Support to more giveaway bots, Better UI, More info about Sniped Nitro and Sniped Giveaway, Limited invite sniper, more customisability
 
-/ You can recommend what to add in pull requests! \
+- Plans: Support to more giveaway bots, Webhook Integration, More info about Sniped Giveaway, Limited invite sniper
+
+/ You can recommend what to add in Issues! \
 
 
 ## Usage:
