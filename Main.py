@@ -163,7 +163,7 @@ async def on_message(message):
 
     def GiveawayDelayInfo():
         print(
-        f"{Fore.LIGHTBLACK_EX} Server: {Fore.WHITE}{message.guild}"  
+        f"{Fore.LIGHTBLACK_EX} Server: {Fore.WHITE}{message.guild}"
         f"\n{Fore.LIGHTBLACK_EX} Channel: {Fore.WHITE}{message.channel}"  
         f"\n{Fore.LIGHTBLACK_EX} Delay: {Fore.WHITE}{delay} seconds"  
     +Fore.RESET) 
@@ -297,10 +297,9 @@ async def on_message(message):
 
 
 
-
     if 'GIVEAWAY' in message.content:
         if giveaway_sniper == True:
-            if message.author.id == 294882584201003009:
+            if message.author.id == 294882584201003009 or message.author.id == 673918978178940951 or message.author.id == 582537632991543307 or message.author.id == 649604306596528138:
                 try:
                     if edelay == False:
                         await message.add_reaction("🎉")
@@ -340,9 +339,9 @@ async def on_message(message):
         else:
             return
 
-    if f'Congratulations <@{Sniper.user.id}>' in message.content:
+    if f'Congratulations <@{Sniper.user.id}>' in message.content or f'<@{Sniper.user.id}> won' in message.content:
         if giveaway_sniper == True:
-            if message.author.id == 294882584201003009:    
+            if message.author.id == 294882584201003009 or message.author.id == 673918978178940951 or message.author.id == 582537632991543307 or message.author.id == 396464677032427530 or message.author.id == 649604306596528138:  
                 print(""
                 f"\n{Fore.GREEN}{time} - Giveaway Won"+Fore.RESET)
                 GiveawayInfo()
