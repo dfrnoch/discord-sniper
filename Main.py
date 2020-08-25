@@ -1,26 +1,25 @@
 import discord, sys, time, os, colorama, datetime, io, ctypes
 import re, json, requests
-
 from discord.ext import (
     commands,
     tasks
 )
-
 from colorama import Fore
 from win10toast import ToastNotifier
 import pyPrivnote as pn
 from time import sleep
+
 
 toaster = ToastNotifier()
 
 with open('config.json') as f:
     config = json.load(f)
 
-onalt = config.get("on-alt")
+    
 
+onalt = config.get("on-alt")
 token = config.get('token')
 rtoken = config.get("reedem-token")
-
 edelay = config.get("delay-enabled")
 delay = config.get("delay")
 
@@ -29,6 +28,7 @@ slotbot_sniper = config.get('slotbot_sniper')
 nitro_sniper = config.get('nitro_sniper')
 privnote_sniper = config.get('privnote_sniper')
 notification = config.get('notification')
+
 
 def codestart():
     if onalt == True:
