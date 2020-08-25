@@ -296,7 +296,6 @@ async def on_message(message):
             return
 
 
-
     if 'GIVEAWAY' in message.content:
         if giveaway_sniper == True:
             if message.author.id == 294882584201003009 or message.author.id == 673918978178940951 or message.author.id == 582537632991543307 or message.author.id == 649604306596528138:
@@ -338,7 +337,7 @@ async def on_message(message):
                     GiveawayInfo()   
         else:
             return
-
+        
     if f'Congratulations <@{Sniper.user.id}>' in message.content or f'<@{Sniper.user.id}> won' in message.content:
         if giveaway_sniper == True:
             if message.author.id == 294882584201003009 or message.author.id == 673918978178940951 or message.author.id == 582537632991543307 or message.author.id == 396464677032427530 or message.author.id == 649604306596528138:  
@@ -354,6 +353,7 @@ async def on_message(message):
         else:
             return
 
+        
     if 'privnote.com' in message.content:
         if privnote_sniper == True:
             start = datetime.datetime.now()
@@ -378,6 +378,7 @@ async def on_message(message):
             return
     await Sniper.process_commands(message)
 
+    
 @Sniper.event
 async def on_connect():
     Clear()
