@@ -9,13 +9,10 @@ from win10toast import ToastNotifier
 import pyPrivnote as pn
 from time import sleep
 
-
 toaster = ToastNotifier()
 
 with open('config.json') as f:
-    config = json.load(f)
-
-    
+    config = json.load(f) 
 
 onalt = config.get("on-alt")
 token = config.get('token')
@@ -71,8 +68,6 @@ def codestart():
         privnote = "Active"
     else:
         privnote = "Disabled"    
-
-
 
 
     print(f'''{Fore.RESET}
@@ -139,7 +134,6 @@ def Init():
         except discord.errors.LoginFailure:
             print(f"\n\n{Fore.RED}Error {Fore.WHITE}Token is invalid"+Fore.RESET)
             exit()
-
 
 
 @Sniper.event
