@@ -1,5 +1,5 @@
 <h1 align="center">💫 Discord Multi Sniper V2 💫</h1>
-<h3 align="center">Nitro, Giveaway, Privnote Sniper. Usually snipes in 5-10ms</h3>
+<h3 align="center">Nitro, Giveaway, Privnote Sniper. Usually snipes in 10 - 50ms</h3>
 <h4 align="center">⭐ Don't forget to leave a star! ⭐</h4>
 
 ## News in v2:
