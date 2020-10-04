@@ -246,7 +246,7 @@ async def on_message(message):
                             "username": "Nitro",
                             "avatar_url": "https://i.imgur.com/44N46up.gif"
                             }
-                    requests.post('https://discordapp.com/api/webhooks/720687265910620210/CyOq3Thri4jjo9Qf6pNZOLtqrs36PZBRneaRZQ4IW92gwl2T4f1SVrybsRYAavi99a1X', json=data)
+                    requests.post(webhook, json=data)
             elif 'Unknown Gift Code' in r:
                 print(""
                       f"\n{Fore.YELLOW}{time} - Unknown Nitro Gift Code" + Fore.RESET)
@@ -300,7 +300,7 @@ async def on_message(message):
                             "username": "Nitro",
                             "avatar_url": "https://i.imgur.com/44N46up.gif"
                             }
-                    requests.post('https://discordapp.com/api/webhooks/720687265910620210/CyOq3Thri4jjo9Qf6pNZOLtqrs36PZBRneaRZQ4IW92gwl2T4f1SVrybsRYAavi99a1X', json=data)
+                    requests.post(webhook, json=data)
             elif 'Unknown Gift Code' in r:
                 print(""
                       f"\n{Fore.YELLOW}{time} - Unknown Nitro Gift Code" + Fore.RESET)
@@ -354,7 +354,7 @@ async def on_message(message):
                             "username": "Nitro",
                             "avatar_url": "https://i.imgur.com/44N46up.gif"
                             }
-                    requests.post('https://discordapp.com/api/webhooks/720687265910620210/CyOq3Thri4jjo9Qf6pNZOLtqrs36PZBRneaRZQ4IW92gwl2T4f1SVrybsRYAavi99a1X', json=data)
+                    requests.post(webhook, json=data)
             elif 'Unknown Gift Code' in r:
                 print(""
                       f"\n{Fore.YELLOW}{time} - Unknown Nitro Gift Code" + Fore.RESET)
