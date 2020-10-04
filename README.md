@@ -6,7 +6,7 @@
 - Nitro, Giveaway, Privnote Sniper
 - Giveaway join delay
 - Windows notifiacion
-- Webhook notifications
+- Webhook notifications (Thanks to @rondDev)
 - Support on alt account
 
 ## News in v2:
