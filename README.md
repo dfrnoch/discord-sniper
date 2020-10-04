@@ -14,6 +14,7 @@
 - Added Support to more giveaway bots
 - Fixed Privnote Sniper
 - More info about Sniped Nitro
+- Added Webhook notifications (Thanks to [@rondDev](https://github.com/rondDev))
 - More customisability
 - Added **use on alt**, that means you can run sniper on alt account and if he snipes nitro, code will be reedemed on other account
 - Removed some useless code
