@@ -2,6 +2,13 @@
 <h3 align="center">Nitro, Giveaway, Privnote Sniper. Usually snipes in 10 - 50ms</h3>
 <h4 align="center">⭐ Don't forget to leave a star! ⭐</h4>
 
+## Features:
+- Nitro, Giveaway, Privnote Sniper
+- Giveaway join delay
+- Windows notifiacion
+- Webhook notifications
+- Support on alt account
+
 ## News in v2:
 - Added giveaway join delay
 - Added Support to more giveaway bots
@@ -12,7 +19,7 @@
 - Removed some useless code
 - If you have enable nitro reedem on other account or delay, it will show you on main page
 
-- *Plans: Support to more giveaway bots, Webhook Integration, Limited invite sniper, Adding more tokens, Optimalization*
+- *Plans: Support to more giveaway bots, Limited invite sniper, Adding more tokens, Optimalization*
 
 / You can recommend what to add in Issues! \
 
