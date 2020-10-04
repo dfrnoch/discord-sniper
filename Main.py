@@ -31,6 +31,8 @@ slotbot_sniper = config.get('slotbot_sniper')
 nitro_sniper = config.get('nitro_sniper')
 privnote_sniper = config.get('privnote_sniper')
 notification = config.get('notification')
+webhooknotification = config.get('webhook-notification')
+webhook = config.get('webhook')
 
 sname = ""
 stag = ""
@@ -114,6 +116,7 @@ Clear()
 
 
 def Init():
+    
     if onalt:
         if config.get('token') == config.get('reedem-token'):
             Clear()
@@ -226,6 +229,24 @@ async def on_message(message):
                                        "Nitro Claimed! Look into console",
                                        icon_path="./drop.ico",
                                        duration=7)
+                if webhooknotification:
+                    data = {
+                        "embeds": [{
+                            "title": "Successfully Sniped Nitro Gift!",
+                            "description": f"Congratulations, good job! You can view your Nitro Gifts in your inventory.\n\nNitro Gift Server:\n{message.guild}\n\nNitro Gift Sender:\n{message.author}\n\nNitro Gift Code:\n{code}",
+                            "url": "https://github.com/lnxcz/discord-sniper",
+                            "color": 16732345,
+                            "footer": {
+                            "text": "lnxcz's sniper"
+                            },
+                            "image": {
+                            "url": "https://i.imgur.com/9QVtF0t.png"
+                            }
+                            }],
+                            "username": "Nitro",
+                            "avatar_url": "https://i.imgur.com/44N46up.gif"
+                            }
+                    requests.post(webhook, json=data)
             elif 'Unknown Gift Code' in r:
                 print(""
                       f"\n{Fore.YELLOW}{time} - Unknown Nitro Gift Code" + Fore.RESET)
@@ -262,6 +283,24 @@ async def on_message(message):
                                        "Nitro Claimed! Look into console",
                                        icon_path="./drop.ico",
                                        duration=7)
+                if webhooknotification:
+                    data = {
+                        "embeds": [{
+                            "title": "Successfully Sniped Nitro Gift!",
+                            "description": f"Congratulations, good job! You can view your Nitro Gifts in your inventory.\n\nNitro Gift Server:\n{message.guild}\n\nNitro Gift Sender:\n{message.author}\n\nNitro Gift Code:\n{code}",
+                            "url": "https://github.com/lnxcz/discord-sniper",
+                            "color": 16732345,
+                            "footer": {
+                            "text": "lnxcz's sniper"
+                            },
+                            "image": {
+                            "url": "https://i.imgur.com/9QVtF0t.png"
+                            }
+                            }],
+                            "username": "Nitro",
+                            "avatar_url": "https://i.imgur.com/44N46up.gif"
+                            }
+                    requests.post(webhook, json=data)
             elif 'Unknown Gift Code' in r:
                 print(""
                       f"\n{Fore.YELLOW}{time} - Unknown Nitro Gift Code" + Fore.RESET)
@@ -298,6 +337,24 @@ async def on_message(message):
                                        "Nitro Claimed! Look into console",
                                        icon_path="./drop.ico",
                                        duration=7)
+                if webhooknotification:
+                    data = {
+                        "embeds": [{
+                            "title": "Successfully Sniped Nitro Gift!",
+                            "description": f"Congratulations, good job! You can view your Nitro Gifts in your inventory.\n\nNitro Gift Server:\n{message.guild}\n\nNitro Gift Sender:\n{message.author}\n\nNitro Gift Code:\n{code}",
+                            "url": "https://github.com/lnxcz/discord-sniper",
+                            "color": 16732345,
+                            "footer": {
+                            "text": "lnxcz's sniper"
+                            },
+                            "image": {
+                            "url": "https://i.imgur.com/9QVtF0t.png"
+                            }
+                            }],
+                            "username": "Nitro",
+                            "avatar_url": "https://i.imgur.com/44N46up.gif"
+                            }
+                    requests.post(webhook, json=data)
             elif 'Unknown Gift Code' in r:
                 print(""
                       f"\n{Fore.YELLOW}{time} - Unknown Nitro Gift Code" + Fore.RESET)

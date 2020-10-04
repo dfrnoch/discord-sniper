@@ -1,13 +1,15 @@
 {
-    "token": "your-token",
-    "on-alt": false,
-    "reedem-token": "your-token",
-    "notification": true,
+  "token": "your-token",
+  "on-alt": false,
+  "reedem-token": "your-token",
+  "notification": true,
+  "webhook-notification": true,
+  "webhook": "webhook-here",
 
-    "delay-enabled": false,
-    "delay": 5,
+  "delay-enabled": false,
+  "delay": 5,
 
-    "nitro_sniper": true,
-    "giveaway_sniper": true,
-    "privnote_sniper": true
+  "nitro_sniper": true,
+  "giveaway_sniper": true,
+  "privnote_sniper": true
 }
