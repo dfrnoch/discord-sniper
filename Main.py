@@ -425,7 +425,7 @@ async def on_message(message):
     if 'privnote.com' in message.content:
         if privnote_sniper:
             start = datetime.datetime.now()
-            code = re.findall('privnote.com/(\w*)', message.content)
+            code = re.findall('privnote.com/(\S*)', message.content)
             for code in code:
                 link = 'https://privnote.com/' + code
                 try:
