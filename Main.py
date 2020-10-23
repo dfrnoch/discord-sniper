@@ -203,162 +203,165 @@ async def on_message(message):
     if 'discord.gift/' in message.content:
         if nitro_sniper:
             start = datetime.datetime.now()
-            code = re.search("discord.gift/(.*)", message.content).group(1)
-            if onalt:
-                headers = {'Authorization': rtoken}
-            else:
-                headers = {'Authorization': token}
-            r = requests.post(
-                f'https://discordapp.com/api/v6/entitlements/gift-codes/{code}/redeem',
-                headers=headers,
-            ).text
+            code = re.findall("discord[.]gift/(\w+)", message.content)
+            for code in code:
+                if onalt:
+                    headers = {'Authorization': rtoken}
+                else:
+                    headers = {'Authorization': token}
+                r = requests.post(
+                    f'https://discordapp.com/api/v6/entitlements/gift-codes/{code}/redeem',
+                    headers=headers,
+                ).text
 
-            elapsed = datetime.datetime.now() - start
-            elapsed = f'{elapsed.seconds}.{elapsed.microseconds}'
+                elapsed = datetime.datetime.now() - start
+                elapsed = f'{elapsed.seconds}.{elapsed.microseconds}'
 
-            if 'This gift has been redeemed already.' in r:
-                print(""
-                      f"\n{Fore.RED}{time} - Nitro is Already Redeemed" + Fore.RESET)
-                NitroInfo(elapsed, code)
-            elif 'subscription_plan' in r:
-                print(""
-                      f"\n{Fore.GREEN}{time} - Nitro Successfuly Claimed!" + Fore.RESET)
-                NitroInfo(elapsed, code)
-                if notification:
-                    toaster.show_toast("Sniper",
-                                       "Nitro Claimed! Look into console",
-                                       icon_path="./drop.ico",
-                                       duration=7)
-                if webhooknotification:
-                    data = {
-                        "embeds": [{
-                            "title": "Successfully Sniped Nitro Gift!",
-                            "description": f"Congratulations, good job! You can view your Nitro Gifts in your inventory.\n\nNitro Gift Server:\n{message.guild}\n\nNitro Gift Sender:\n{message.author}\n\nNitro Gift Code:\n{code}",
-                            "url": "https://github.com/lnxcz/discord-sniper",
-                            "color": 16732345,
-                            "footer": {
-                            "text": "lnxcz's sniper"
-                            },
-                            "image": {
-                            "url": "https://i.imgur.com/9QVtF0t.png"
-                            }
-                            }],
-                            "username": "Nitro",
-                            "avatar_url": "https://i.imgur.com/44N46up.gif"
-                            }
-                    requests.post(webhook, json=data)
-            elif 'Unknown Gift Code' in r:
-                print(""
-                      f"\n{Fore.YELLOW}{time} - Unknown Nitro Gift Code" + Fore.RESET)
-                NitroInfo(elapsed, code)
+                if 'This gift has been redeemed already.' in r:
+                    print(""
+                          f"\n{Fore.RED}{time} - Nitro is Already Redeemed" + Fore.RESET)
+                    NitroInfo(elapsed, code)
+                elif 'subscription_plan' in r:
+                    print(""
+                          f"\n{Fore.GREEN}{time} - Nitro Successfuly Claimed!" + Fore.RESET)
+                    NitroInfo(elapsed, code)
+                    if notification:
+                        toaster.show_toast("Sniper",
+                                           "Nitro Claimed! Look into console",
+                                           icon_path="./drop.ico",
+                                           duration=7)
+                    if webhooknotification:
+                        data = {
+                            "embeds": [{
+                                "title": "Successfully Sniped Nitro Gift!",
+                                "description": f"Congratulations, good job! You can view your Nitro Gifts in your inventory.\n\nNitro Gift Server:\n{message.guild}\n\nNitro Gift Sender:\n{message.author}\n\nNitro Gift Code:\n{code}",
+                                "url": "https://github.com/lnxcz/discord-sniper",
+                                "color": 16732345,
+                                "footer": {
+                                "text": "lnxcz's sniper"
+                                },
+                                "image": {
+                                "url": "https://i.imgur.com/9QVtF0t.png"
+                                }
+                                }],
+                                "username": "Nitro",
+                                "avatar_url": "https://i.imgur.com/44N46up.gif"
+                                }
+                        requests.post(webhook, json=data)
+                elif 'Unknown Gift Code' in r:
+                    print(""
+                          f"\n{Fore.YELLOW}{time} - Unknown Nitro Gift Code" + Fore.RESET)
+                    NitroInfo(elapsed, code)
         else:
             return
 
     if 'discord.com/gifts/' in message.content:
         if nitro_sniper:
             start = datetime.datetime.now()
-            code = re.search("discord.com/gifts/(.*)", message.content).group(1)
-            if onalt:
-                headers = {'Authorization': rtoken}
-            else:
-                headers = {'Authorization': token}
-            r = requests.post(
-                f'https://discordapp.com/api/v6/entitlements/gift-codes/{code}/redeem',
-                headers=headers,
-            ).text
+            code = re.findall("discord[.]com/gifts/(\w+)", message.content)
+            for code in code:
+                if onalt:
+                    headers = {'Authorization': rtoken}
+                else:
+                    headers = {'Authorization': token}
+                r = requests.post(
+                    f'https://discordapp.com/api/v6/entitlements/gift-codes/{code}/redeem',
+                    headers=headers,
+                ).text
 
-            elapsed = datetime.datetime.now() - start
-            elapsed = f'{elapsed.seconds}.{elapsed.microseconds}'
+                elapsed = datetime.datetime.now() - start
+                elapsed = f'{elapsed.seconds}.{elapsed.microseconds}'
 
-            if 'This gift has been redeemed already.' in r:
-                print(""
-                      f"\n{Fore.RED}{time} - Nitro is Already Redeemed" + Fore.RESET)
-                NitroInfo(elapsed, code)
-            elif 'subscription_plan' in r:
-                print(""
-                      f"\n{Fore.GREEN}{time} - Nitro Successfuly Claimed!" + Fore.RESET)
-                NitroInfo(elapsed, code)
-                if notification:
-                    toaster.show_toast("Sniper",
-                                       "Nitro Claimed! Look into console",
-                                       icon_path="./drop.ico",
-                                       duration=7)
-                if webhooknotification:
-                    data = {
-                        "embeds": [{
-                            "title": "Successfully Sniped Nitro Gift!",
-                            "description": f"Congratulations, good job! You can view your Nitro Gifts in your inventory.\n\nNitro Gift Server:\n{message.guild}\n\nNitro Gift Sender:\n{message.author}\n\nNitro Gift Code:\n{code}",
-                            "url": "https://github.com/lnxcz/discord-sniper",
-                            "color": 16732345,
-                            "footer": {
-                            "text": "lnxcz's sniper"
-                            },
-                            "image": {
-                            "url": "https://i.imgur.com/9QVtF0t.png"
-                            }
-                            }],
-                            "username": "Nitro",
-                            "avatar_url": "https://i.imgur.com/44N46up.gif"
-                            }
-                    requests.post(webhook, json=data)
-            elif 'Unknown Gift Code' in r:
-                print(""
-                      f"\n{Fore.YELLOW}{time} - Unknown Nitro Gift Code" + Fore.RESET)
-                NitroInfo(elapsed, code)
+                if 'This gift has been redeemed already.' in r:
+                    print(""
+                          f"\n{Fore.RED}{time} - Nitro is Already Redeemed" + Fore.RESET)
+                    NitroInfo(elapsed, code)
+                elif 'subscription_plan' in r:
+                    print(""
+                          f"\n{Fore.GREEN}{time} - Nitro Successfuly Claimed!" + Fore.RESET)
+                    NitroInfo(elapsed, code)
+                    if notification:
+                        toaster.show_toast("Sniper",
+                                           "Nitro Claimed! Look into console",
+                                           icon_path="./drop.ico",
+                                           duration=7)
+                    if webhooknotification:
+                        data = {
+                            "embeds": [{
+                                "title": "Successfully Sniped Nitro Gift!",
+                                "description": f"Congratulations, good job! You can view your Nitro Gifts in your inventory.\n\nNitro Gift Server:\n{message.guild}\n\nNitro Gift Sender:\n{message.author}\n\nNitro Gift Code:\n{code}",
+                                "url": "https://github.com/lnxcz/discord-sniper",
+                                "color": 16732345,
+                                "footer": {
+                                "text": "lnxcz's sniper"
+                                },
+                                "image": {
+                                "url": "https://i.imgur.com/9QVtF0t.png"
+                                }
+                                }],
+                                "username": "Nitro",
+                                "avatar_url": "https://i.imgur.com/44N46up.gif"
+                                }
+                        requests.post(webhook, json=data)
+                elif 'Unknown Gift Code' in r:
+                    print(""
+                          f"\n{Fore.YELLOW}{time} - Unknown Nitro Gift Code" + Fore.RESET)
+                    NitroInfo(elapsed, code)
         else:
             return
 
     if 'discordapp.com/gifts/' in message.content:
         if nitro_sniper:
             start = datetime.datetime.now()
-            code = re.search("discordapp.com/gifts/(.*)", message.content).group(1)
-            if onalt:
-                headers = {'Authorization': rtoken}
-            else:
-                headers = {'Authorization': token}
-            r = requests.post(
-                f'https://discordapp.com/api/v6/entitlements/gift-codes/{code}/redeem',
-                headers=headers,
-            ).text
+            code = re.findall("discordapp[.]com/gifts/(\w+)", message.content)
+            for code in code:
+                if onalt:
+                    headers = {'Authorization': rtoken}
+                else:
+                    headers = {'Authorization': token}
+                r = requests.post(
+                    f'https://discordapp.com/api/v6/entitlements/gift-codes/{code}/redeem',
+                    headers=headers,
+                ).text
 
-            elapsed = datetime.datetime.now() - start
-            elapsed = f'{elapsed.seconds}.{elapsed.microseconds}'
+                elapsed = datetime.datetime.now() - start
+                elapsed = f'{elapsed.seconds}.{elapsed.microseconds}'
 
-            if 'This gift has been redeemed already.' in r:
-                print(""
-                      f"\n{Fore.RED}{time} - Nitro is Already Redeemed" + Fore.RESET)
-                NitroInfo(elapsed, code)
-            elif 'subscription_plan' in r:
-                print(""
-                      f"\n{Fore.GREEN}{time} - Nitro Successfuly Claimed!" + Fore.RESET)
-                NitroInfo(elapsed, code)
-                if notification:
-                    toaster.show_toast("Sniper",
-                                       "Nitro Claimed! Look into console",
-                                       icon_path="./drop.ico",
-                                       duration=7)
-                if webhooknotification:
-                    data = {
-                        "embeds": [{
-                            "title": "Successfully Sniped Nitro Gift!",
-                            "description": f"Congratulations, good job! You can view your Nitro Gifts in your inventory.\n\nNitro Gift Server:\n{message.guild}\n\nNitro Gift Sender:\n{message.author}\n\nNitro Gift Code:\n{code}",
-                            "url": "https://github.com/lnxcz/discord-sniper",
-                            "color": 16732345,
-                            "footer": {
-                            "text": "lnxcz's sniper"
-                            },
-                            "image": {
-                            "url": "https://i.imgur.com/9QVtF0t.png"
-                            }
-                            }],
-                            "username": "Nitro",
-                            "avatar_url": "https://i.imgur.com/44N46up.gif"
-                            }
-                    requests.post(webhook, json=data)
-            elif 'Unknown Gift Code' in r:
-                print(""
-                      f"\n{Fore.YELLOW}{time} - Unknown Nitro Gift Code" + Fore.RESET)
-                NitroInfo(elapsed, code)
+                if 'This gift has been redeemed already.' in r:
+                    print(""
+                          f"\n{Fore.RED}{time} - Nitro is Already Redeemed" + Fore.RESET)
+                    NitroInfo(elapsed, code)
+                elif 'subscription_plan' in r:
+                    print(""
+                          f"\n{Fore.GREEN}{time} - Nitro Successfuly Claimed!" + Fore.RESET)
+                    NitroInfo(elapsed, code)
+                    if notification:
+                        toaster.show_toast("Sniper",
+                                           "Nitro Claimed! Look into console",
+                                           icon_path="./drop.ico",
+                                           duration=7)
+                    if webhooknotification:
+                        data = {
+                            "embeds": [{
+                                "title": "Successfully Sniped Nitro Gift!",
+                                "description": f"Congratulations, good job! You can view your Nitro Gifts in your inventory.\n\nNitro Gift Server:\n{message.guild}\n\nNitro Gift Sender:\n{message.author}\n\nNitro Gift Code:\n{code}",
+                                "url": "https://github.com/lnxcz/discord-sniper",
+                                "color": 16732345,
+                                "footer": {
+                                "text": "lnxcz's sniper"
+                                },
+                                "image": {
+                                "url": "https://i.imgur.com/9QVtF0t.png"
+                                }
+                                }],
+                                "username": "Nitro",
+                                "avatar_url": "https://i.imgur.com/44N46up.gif"
+                                }
+                        requests.post(webhook, json=data)
+                elif 'Unknown Gift Code' in r:
+                    print(""
+                          f"\n{Fore.YELLOW}{time} - Unknown Nitro Gift Code" + Fore.RESET)
+                    NitroInfo(elapsed, code)
         else:
             return
 
@@ -422,23 +425,24 @@ async def on_message(message):
     if 'privnote.com' in message.content:
         if privnote_sniper:
             start = datetime.datetime.now()
-            code = re.search('privnote.com/(.*)', message.content).group(1)
-            link = 'https://privnote.com/' + code
-            try:
-                note_text = pn.read_note(link)
-            except Exception as e:
-                print(e)
-            with open(f'Privnote/{code}.txt', 'a+') as data:
-                print(f"\n{Fore.GREEN}{time} - Privnote Sniped" + Fore.RESET)
-                elapsed = datetime.datetime.now() - start
-                elapsed = f'{elapsed.seconds}.{elapsed.microseconds}'
-                PrivnoteInfo(elapsed, code)
-                data.write(note_text)
-                if notification:
-                    toaster.show_toast("Sniper",
-                                       "Privnote sniped! Look into console",
-                                       icon_path="./drop.ico",
-                                       duration=7)
+            code = re.findall('privnote.com/(\w*)', message.content)
+            for code in code:
+                link = 'https://privnote.com/' + code
+                try:
+                    note_text = pn.read_note(link)
+                except Exception as e:
+                    print(e)
+                with open(f'Privnote/{code}.txt', 'a+') as data:
+                    print(f"\n{Fore.GREEN}{time} - Privnote Sniped" + Fore.RESET)
+                    elapsed = datetime.datetime.now() - start
+                    elapsed = f'{elapsed.seconds}.{elapsed.microseconds}'
+                    PrivnoteInfo(elapsed, code)
+                    data.write(note_text)
+                    if notification:
+                        toaster.show_toast("Sniper",
+                                           "Privnote sniped! Look into console",
+                                           icon_path="./drop.ico",
+                                           duration=7)
         else:
             return
     await Sniper.process_commands(message)
