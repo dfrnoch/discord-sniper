@@ -427,5 +427,4 @@ async def on_connect():
     Clear()
     codestart()
     ctypes.windll.kernel32.SetConsoleTitleW(f'Discord Sniper - User: {Sniper.user.name} - Made by LnX')
-ratelimited = False
 Init()
