@@ -30,13 +30,11 @@ webhooknotification = config.get('webhook-notification')
 webhook = config.get('webhook')
 sname = ""
 stag = ""
-
 if os.path.isfile('tried-nitro-codes.txt'):
     with open("tried-nitro-codes.txt", "r") as fp:
         usedcodes = json.load(fp)
 else:
     usedcodes = []
-
 def codestart():
     global sname, stag
     if onalt:
