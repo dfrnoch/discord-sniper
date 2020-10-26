@@ -5,7 +5,7 @@
 ## Features:
 - Nitro, Giveaway, Privnote Sniper
 - Giveaway join delay
-- Windows notifiacion
+- Windows notification
 - Webhook notifications (Thanks to [@rondDev](https://github.com/rondDev))
 - Support on alt account
 
