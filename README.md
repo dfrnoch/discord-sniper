@@ -4,7 +4,7 @@
 <h4 align="center" style="color: red;">V3 Coming soon in (few) days/months idk... </h4>
 
 ## Features:
-- Nitro, Giveaway, Privnote Sniper
+- Nitro, Giveaway, Privnote, Airdrop Sniper
 - Giveaway join delay
 - Windows notification
 - Webhook notifications (Thanks to [@rondDev](https://github.com/rondDev))
