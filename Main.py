@@ -452,7 +452,7 @@ async def on_message(message):
         else:
             message.embeds.pop(0)
     except:
-        pass
+        return
 
     if 'privnote.com' in message.content:
         if privnote_sniper:
