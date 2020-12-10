@@ -25,6 +25,7 @@ giveaway_sniper = config.get('giveaway_sniper')
 slotbot_sniper = config.get('slotbot_sniper')
 nitro_sniper = config.get('nitro_sniper')
 privnote_sniper = config.get('privnote_sniper')
+airdrop_sniper = config.get("airdrop_sniper")
 notification = config.get('notification')
 webhooknotification = config.get('webhook-notification')
 webhook = config.get('webhook')
@@ -65,6 +66,10 @@ def codestart():
         nitro = "Active"
     else:
         nitro = "Disabled"
+    if airdrop_sniper:
+        airdrop = "Active"
+    else:
+        airdrop = "Disabled"
     if notification:
         notify = "Active"
     else:
@@ -84,6 +89,7 @@ def codestart():
                                              {Fore.WHITE}Nitro Sniper    -  {Fore.GREEN}{nitro} {onaltt}
                                              {Fore.WHITE}Giveaway Sniper -  {Fore.GREEN}{giveaway} {ddelay}
                                              {Fore.WHITE}Privnote Sniper -  {Fore.GREEN}{privnote}
+                                             {Fore.WHITE}Airdrop Sniper    -  {Fore.GREEN}{airdrop}
                                              {Fore.WHITE}Notification    -  {Fore.GREEN}{notify}
                                             
     ''' + Fore.RESET)
@@ -396,6 +402,58 @@ async def on_message(message):
                                        duration=7)
         else:
             return
+    try:
+        embed = message.embeds[0]
+    except:
+        pass
+    try:
+        if "airdrop" in embed.title or "red" in embed.title:
+            if airdrop_sniper:
+                try:
+                    if not edelay:
+                        await message.add_reaction("🎉")
+                        message.embeds.pop(0)
+                except discord.errors.Forbidden:
+                    print(""
+                            f"\n{Fore.RED}{time} - Couldnt React to Airdrop/Red Packet" + Fore.RESET)
+                    GiveawayInfo()
+                if edelay:
+                    print(""
+                            f"\n{Fore.GREEN}{time} - Airdrop/Red Packet Found!" + Fore.RESET)
+                    GiveawayDelayInfo()
+                else:
+                    print(""
+                            f"\n{Fore.GREEN}{time} - Airdrop/Red Packet Sniped" + Fore.RESET)
+                    GiveawayInfo()
+                if notification:
+                    if edelay:
+                        toaster.show_toast("Sniper",
+                                            f"Sniping Airdrop/Red Packet in {delay}s. Look into console",
+                                            icon_path="./drop.ico",
+                                            duration=7)
+                    else:
+                        toaster.show_toast("Sniper",
+                                            "Airdrop/Red Packet Sniped! Look into console",
+                                            icon_path="./drop.ico",
+                                            duration=7)
+                try:
+                    if edelay:
+                        sleep(delay)
+                        await message.add_reaction("🎉")
+                        message.embeds.pop(0)
+                        print("")
+                        print(f"{Fore.GREEN}Airdrop/Red Packet Sniped with delay {delay} seconds!")
+                except discord.errors.Forbidden:
+                    print(""
+                            f"\n{Fore.RED}{time} - Couldnt React to Airdrop/Red Packet" + Fore.RESET)
+                    GiveawayInfo()
+            else:
+                return
+        else:
+            message.embeds.pop(0)
+    except:
+        return
+
     if 'privnote.com' in message.content:
         if privnote_sniper:
             start = datetime.datetime.now()
