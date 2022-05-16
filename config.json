@@ -1,0 +1,17 @@
+{
+  "token": "your-token",
+  "on_alt": false,
+  "reedem_token": "your-token",
+  "notification": true,
+  "webhook_notification": false,
+  "webhook": "webhook-here",
+
+  "delay_enabled": true,
+  "delay": 5,
+
+  "nitro_sniper": true,
+  "giveaway_sniper": true,
+  "privnote_sniper": true,
+
+  "bot_list": [294882584201003009, 673918978178940951, 582537632991543307, 649604306596528138, 396464677032427530]
+}
