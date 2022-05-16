@@ -1,4 +1,4 @@
-<h1 align="center">💫 Discord Multi Sniper V2 💫</h1>
+<h1 align="center">💫 Discord Multi Sniper V2.1 💫</h1>
 <h3 align="center">Nitro, Giveaway, Privnote Sniper. Usually snipes in 10 - 50ms</h3>
 <h4 align="center">⭐ Don't forget to leave a star! ⭐</h4>
 <h4 align="center" style="color: red;">Some code changes before v3, sniper should be faster</h4>
@@ -7,7 +7,6 @@
 - Added giveaway botlist, fixed webhooks
 - Nitro, Giveaway, Privnote sniper
 - Giveaway join delay
-- Windows notification
 - Webhook notifications (Thanks to [@rondDev](https://github.com/rondDev))
 - Support on alt account
 
@@ -29,8 +28,8 @@
 
 ## Usage:
 1. Config settings and token in `config.json`
-2. Open install.bat
-3. Open start.bat
+2. Open install.bat or install.sh
+3. Open launch.bat or launch.sh
 4. All set :)
 
 ## Settings:
