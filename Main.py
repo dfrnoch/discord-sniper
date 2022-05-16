@@ -3,7 +3,6 @@ import re
 import requests
 from time import sleep
 import colorama
-import ctypes
 import datetime
 import discord
 import os
@@ -12,8 +11,6 @@ from colorama import Fore
 from discord.ext import (
     commands
 )
-from win10toast import ToastNotifier
-toaster = ToastNotifier()
 #
 #CONFIG INPUT
 #
@@ -29,7 +26,6 @@ slotbot_sniper = config.get('slotbot_sniper')
 nitro_sniper = config.get('nitro_sniper')
 privnote_sniper = config.get('privnote_sniper')
 airdrop_sniper = config.get("airdrop_sniper")
-notification = config.get('notification')
 webhooknotification = config.get('webhook_notification')
 webhook = config.get('webhook')
 botlist = config.get('bot_list')
@@ -74,27 +70,22 @@ def codestart():
         nitro = "Active"
     else:
         nitro = "Disabled"
-    if notification:
-        notify = "Active"
-    else:
-        notify = "Disabled"
     if privnote_sniper:
         privnote = "Active"
     else:
         privnote = "Disabled"
     print(f'''{Fore.RESET}
-                                             {Fore.GREEN}╔═╗  ╔╗╔  ╦  ╦═╗  ╦═╗  ╦═╗
-                                             {Fore.LIGHTBLACK_EX}╚═╗  ║║║  ║  ╠═╝  ╠╣   ╠╦╝
-                                             {Fore.WHITE}╚═╝  ╝╚╝  ╩  ╩    ╩═╝  ╩╚═
-                                             
-                                             
-                                             {Fore.WHITE}Logged User     -  {Fore.GREEN}{Sniper.user.name}#{Sniper.user.discriminator}
-                                             
-                                             {Fore.WHITE}Nitro Sniper    -  {Fore.GREEN}{nitro} {onaltt}
-                                             {Fore.WHITE}Giveaway Sniper -  {Fore.GREEN}{giveaway} {ddelay}
-                                             {Fore.WHITE}Privnote Sniper -  {Fore.GREEN}{privnote}
-                                             {Fore.WHITE}Notification    -  {Fore.GREEN}{notify}
-                                            
+                                     {Fore.GREEN}╔═╗  ╔╗╔  ╦  ╦═╗  ╦═╗  ╦═╗
+                                     {Fore.LIGHTBLACK_EX}╚═╗  ║║║  ║  ╠═╝  ╠╣   ╠╦╝
+                                     {Fore.WHITE}╚═╝  ╝╚╝  ╩  ╩    ╩═╝  ╩╚═
+
+
+                                     {Fore.WHITE}Logged User     -  {Fore.GREEN}{Sniper.user.name}#{Sniper.user.discriminator}
+
+                                     {Fore.WHITE}Nitro Sniper    -  {Fore.GREEN}{nitro} {onaltt}
+                                     {Fore.WHITE}Giveaway Sniper -  {Fore.GREEN}{giveaway} {ddelay}
+                                     {Fore.WHITE}Privnote Sniper -  {Fore.GREEN}{privnote}
+
     ''' + Fore.RESET)
 colorama.init()
 Sniper = commands.Bot(
@@ -102,11 +93,12 @@ Sniper = commands.Bot(
     command_prefix="",
     self_bot=True
 )
+
 def Clear():
-    os.system('cls')
+    print("\n" * 100)
 Clear()
 def Init():
-    
+
     if onalt:
         if config.get('token') == config.get('reedem-token'):
             Clear()
@@ -134,8 +126,7 @@ def Init():
     else:
         token = config.get('token')
         try:
-            Sniper.run(token, bot=False, reconnect=True)
-            os.system(f'title Discord Sniper')
+            Sniper.run(token, reconnect=True)
         except discord.errors.LoginFailure:
             print(f"\n\n{Fore.RED}Error {Fore.WHITE}Token is invalid" + Fore.RESET)
             exit()
@@ -214,11 +205,6 @@ async def on_message(message):
                             print(""
                                   f"\n{Fore.GREEN}{time} - Nitro Successfuly Claimed!" + Fore.RESET)
                             NitroInfo(elapsed, code)
-                            if notification:
-                                toaster.show_toast("Sniper",
-                                                   "Nitro Claimed! Look into console",
-                                                   icon_path="./drop.ico",
-                                                   duration=7)
                             if webhooknotification:
                                 data = {
                                     "embeds": [{
@@ -243,9 +229,10 @@ async def on_message(message):
                             NitroInfo(elapsed, code)
         else:
             return
-    if 'GIVEAWAY' in message.content:
+    # Don't react to all messages
+    if message.content:
         if giveaway_sniper:
-            if message.author.id in botlist:
+            if message.author.id in botlist and not (f'@{Sniper.user.id}' in message.content or f'<@{Sniper.user.id}>' in message.content) and not ("Giveaway ended" in message.content or "Congratulations" in message.content):
                 start = datetime.datetime.now()
                 try:
                     if not edelay:
@@ -264,17 +251,6 @@ async def on_message(message):
                     print(""
                           f"\n{Fore.GREEN}{time} - Giveaway Sniped" + Fore.RESET)
                     GiveawayInfo(elapsed)
-                if notification:
-                    if edelay:
-                        toaster.show_toast("Sniper",
-                                           f"Sniping Giveaway in {delay}s. Look into console",
-                                           icon_path="./drop.ico",
-                                           duration=7)
-                    else:
-                        toaster.show_toast("Sniper",
-                                           "Giveaway Sniped! Look into console",
-                                           icon_path="./drop.ico",
-                                           duration=7)
                 try:
                     if edelay:
                         sleep(delay)
@@ -285,38 +261,39 @@ async def on_message(message):
                     print(""
                           f"\n{Fore.RED}{time} - Couldnt React to Giveaway" + Fore.RESET)
                     GiveawayInfo(elapsed)
+                if webhooknotification:
+                    data = {
+                        "embeds": [{
+                            "title": "Giveaway Joined!",
+                            "description": f"**Message content**: `{message.content[:500]}`\n**Giveaway Server**: `{message.guild}`",
+                            "url": message.jump_url,
+                            "color": 3407667
+                            }],
+                            "username": "RO-BOT",
+                            "avatar_url": "https://i.imgur.com/44N46up.gif"
+                            }
+                    requests.post(webhook, json=data)
         else:
             return
-    if f'Congratulations <@{Sniper.user.id}>' in message.content or f'<@{Sniper.user.id}> won' in message.content:
+    if f'@{Sniper.user.id}' in message.content or f'<@{Sniper.user.id}>' in message.content:
         if giveaway_sniper:
             if message.author.id in botlist:
                 print(""
                       f"\n{Fore.GREEN}{time} - Giveaway Won" + Fore.RESET)
                 elapsed = "-"
                 GiveawayInfo(elapsed)
-                if notification:
-                    toaster.show_toast("Sniper",
-                                       "Giveaway Won! Look into console",
-                                       icon_path="./drop.ico",
-                                       duration=7)
-                    if webhooknotification:
-                        data = {
-                            "embeds": [{
-                                "title": "Giveaway won!!",
-                                "description": f"Congratulations, good job! You can view your Nitro Gifts in your inventory.\n\nGiveaway Server: {message.guild}",
-                                "url": "https://github.com/lnxcz/discord-sniper",
-                                "color": 16732345,
-                                "footer": {
-                                "text": "lnxcz's sniper"
-                                },
-                                "image": {
-                                "url": "https://i.imgur.com/9QVtF0t.png"
-                                }
-                                }],
-                                "username": "Nitro",
-                                "avatar_url": "https://i.imgur.com/44N46up.gif"
-                                }
-                        requests.post(webhook, json=data)
+                if webhooknotification:
+                    data = {
+                        "embeds": [{
+                            "title": "Giveaway Won!",
+                            "description": f"**Message content**: `{message.content[:500]}`\n**Giveaway Server**: `{message.guild}`",
+                            "url": message.jump_url,
+                            "color": 16732345
+                            }],
+                            "username": "RO-BOT",
+                            "avatar_url": "https://i.imgur.com/44N46up.gif"
+                            }
+                    requests.post(webhook, json=data)
         else:
             return
 
@@ -336,11 +313,6 @@ async def on_message(message):
                     elapsed = f'{elapsed.seconds}.{elapsed.microseconds}'
                     PrivnoteInfo(elapsed, code)
                     data.write(note_text)
-                    if notification:
-                        toaster.show_toast("Sniper",
-                                           "Privnote sniped! Look into console",
-                                           icon_path="./drop.ico",
-                                           duration=7)
         else:
             return
     await Sniper.process_commands(message)
@@ -348,5 +320,4 @@ async def on_message(message):
 async def on_connect():
     Clear()
     codestart()
-    ctypes.windll.kernel32.SetConsoleTitleW(f'Discord Sniper - User: {Sniper.user.name} - Made by LnX')
 Init()

@@ -2,4 +2,3 @@ discord
 colorama
 requests
 pyPrivnote
-win10toast
