@@ -62,29 +62,17 @@ def codestart():
         ddelay = f"{Fore.LIGHTBLACK_EX}({delay} seconds)"
     else:
         ddelay = " "
-    if giveaway_sniper:
-        giveaway = "Active"
-    else:
-        giveaway = "Disabled"
-    if nitro_sniper:
-        nitro = "Active"
-    else:
-        nitro = "Disabled"
-    if privnote_sniper:
-        privnote = "Active"
-    else:
-        privnote = "Disabled"
     print(f'''{Fore.RESET}
                                      {Fore.GREEN}╔═╗  ╔╗╔  ╦  ╦═╗  ╦═╗  ╦═╗
                                      {Fore.LIGHTBLACK_EX}╚═╗  ║║║  ║  ╠═╝  ╠╣   ╠╦╝
                                      {Fore.WHITE}╚═╝  ╝╚╝  ╩  ╩    ╩═╝  ╩╚═
 
 
-                                     {Fore.WHITE}Logged User     -  {Fore.GREEN}{Sniper.user.name}#{Sniper.user.discriminator}
+                                     {Fore.WHITE}Connected User     -  {Fore.GREEN}{Sniper.user.name}#{Sniper.user.discriminator}
 
-                                     {Fore.WHITE}Nitro Sniper    -  {Fore.GREEN}{nitro} {onaltt}
-                                     {Fore.WHITE}Giveaway Sniper -  {Fore.GREEN}{giveaway} {ddelay}
-                                     {Fore.WHITE}Privnote Sniper -  {Fore.GREEN}{privnote}
+                                     {Fore.WHITE}Nitro Sniper    -  {Fore.GREEN}{nitro_sniper} {onaltt}
+                                     {Fore.WHITE}Giveaway Sniper -  {Fore.GREEN}{giveaway_sniper} {ddelay}
+                                     {Fore.WHITE}Privnote Sniper -  {Fore.GREEN}{privnote_sniper}
 
     ''' + Fore.RESET)
 colorama.init()
@@ -102,11 +90,11 @@ def Init():
     if onalt:
         if config.get('token') == config.get('reedem-token'):
             Clear()
-            print(f"\n\n{Fore.RED}Error {Fore.WHITE}Alt token connot be same as Reedem Token!" + Fore.RESET)
+            print(f"\n\n{Fore.RED}Error {Fore.WHITE}Alt token connot be same as Redeem Token!" + Fore.RESET)
             exit()
-        if rtoken == "token-here":
+        if rtoken == "your-token":
             Clear()
-            print(f"\n\n{Fore.RED}Error {Fore.WHITE}You didnt put your alt token in the config.json file" + Fore.RESET)
+            print(f"\n\n{Fore.RED}Error {Fore.WHITE}You didn't put your alt token in the config.json file" + Fore.RESET)
             exit()
         else:
             headers = {
@@ -121,7 +109,7 @@ def Init():
                 exit()
     if config.get('token') == "token-here":
         Clear()
-        print(f"\n\n{Fore.RED}Error {Fore.WHITE}You didnt put your token in the config.json file" + Fore.RESET)
+        print(f"\n\n{Fore.RED}Error {Fore.WHITE}You didn't put your token in the config.json file" + Fore.RESET)
         exit()
     else:
         token = config.get('token')
@@ -219,8 +207,8 @@ async def on_message(message):
                                         "url": "https://i.imgur.com/9QVtF0t.png"
                                         }
                                         }],
-                                        "username": "Nitro",
-                                        "avatar_url": "https://i.imgur.com/44N46up.gif"
+                                        "username": f"Sniper | {Sniper.user.name}#{Sniper.user.discriminator}",
+                                        "avatar_url": str(Sniper.user.avatar_url)
                                         }
                                 requests.post(webhook, json=data)
                         elif 'Unknown Gift Code' in r:
@@ -241,7 +229,7 @@ async def on_message(message):
                         elapsed = f'{elapsed.seconds}.{elapsed.microseconds}'
                 except discord.errors.Forbidden:
                     print(""
-                          f"\n{Fore.RED}{time} - Couldnt React to Giveaway" + Fore.RESET)
+                          f"\n{Fore.RED}{time} - Couldn't React to Giveaway" + Fore.RESET)
                     GiveawayInfo(elapsed)
                 if edelay:
                     print(""
@@ -259,18 +247,18 @@ async def on_message(message):
                         print(f"{Fore.GREEN}Giveaway Sniped with delay {delay} seconds!")
                 except discord.errors.Forbidden:
                     print(""
-                          f"\n{Fore.RED}{time} - Couldnt React to Giveaway" + Fore.RESET)
+                          f"\n{Fore.RED}{time} - Couldn't React to Giveaway" + Fore.RESET)
                     GiveawayInfo(elapsed)
                 if webhooknotification:
                     data = {
                         "embeds": [{
                             "title": "Giveaway Joined!",
-                            "description": f"**Message content**: `{message.content[:500]}`\n**Giveaway Server**: `{message.guild}`",
+                            "description": f"**Message content**: `{message.content[:500]}`\n**Giveaway Server**: `{message.guild}`\n**Channel**: `#{message.channel}`",
                             "url": message.jump_url,
                             "color": 3407667
                             }],
-                            "username": "RO-BOT",
-                            "avatar_url": "https://i.imgur.com/44N46up.gif"
+                            "username": f"Sniper | {Sniper.user.name}#{Sniper.user.discriminator}",
+                            "avatar_url": str(Sniper.user.avatar_url)
                             }
                     requests.post(webhook, json=data)
         else:
@@ -286,12 +274,12 @@ async def on_message(message):
                     data = {
                         "embeds": [{
                             "title": "Giveaway Won!",
-                            "description": f"**Message content**: `{message.content[:500]}`\n**Giveaway Server**: `{message.guild}`",
+                            "description": f"**Message content**: `{message.content[:500]}`\n**Giveaway Server**: `{message.guild}`\n**Channel**: `#{message.channel}`",
                             "url": message.jump_url,
                             "color": 16732345
                             }],
-                            "username": "RO-BOT",
-                            "avatar_url": "https://i.imgur.com/44N46up.gif"
+                            "username": f"Sniper | {Sniper.user.name}#{Sniper.user.discriminator}",
+                            "avatar_url": str(Sniper.user.avatar_url)
                             }
                     requests.post(webhook, json=data)
         else:

@@ -1,7 +1,7 @@
-<h1 align="center">💫 Discord Multi Sniper V2.1 💫</h1>
+<h1 align="center">💫 Discord Multi Sniper V3 💫</h1>
 <h3 align="center">Nitro, Giveaway, Privnote Sniper. Usually snipes in 10 - 50ms</h3>
 <h4 align="center">⭐ Don't forget to leave a star! ⭐</h4>
-<h4 align="center" style="color: red;">Some code changes before v3, sniper should be faster</h4>
+<h4 align="center" style="color: green;">Fork updated regularly</h4>
 
 ## Features:
 - Added giveaway botlist, fixed webhooks
@@ -20,6 +20,11 @@
 - Added **use on alt**, that means you can run sniper on alt account and if he snipes nitro, code will be reedemed on other account
 - Removed some useless code
 - If you have enable nitro reedem on other account or delay, it will show you on main page
+
+## News in v3:
+- Replaced [discord.py](https://github.com/Rapptz/discord.py) with [discord.py-self](https://github.com/dolfies/discord.py-self) (workaround for Discord API changes)
+- Removed Windows Notifications for multi-OS support (might be added back in the future)
+- Cleaned up some of the redundant code
 
 - *Plans: Support to more giveaway bots, Limited invite sniper, Adding more tokens, Optimalization*
 
