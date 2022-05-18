@@ -1,4 +1,4 @@
-discord.py-self
+discord
 colorama
 requests
 pyPrivnote
