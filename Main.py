@@ -218,7 +218,8 @@ async def on_message(message):
         else:
             return
     # Don't react to all messages
-    if message.content:
+    # Don't react to DMs
+    if message.content or message.embeds and message.guild:
         if giveaway_sniper:
             if message.author.id in botlist and not (f'@{Sniper.user.id}' in message.content or f'<@{Sniper.user.id}>' in message.content) and not ("Giveaway ended" in message.content or "Congratulations" in message.content):
                 start = datetime.datetime.now()
@@ -250,10 +251,16 @@ async def on_message(message):
                           f"\n{Fore.RED}{time} - Couldn't React to Giveaway" + Fore.RESET)
                     GiveawayInfo(elapsed)
                 if webhooknotification:
+                    if message.content:
+                        message_content = message.content.replace("`", "").replace("\\", "")[:500]
+                    elif message.embeds:
+                        message_content = str(message.embeds[0].title) + "\n" + str(message.embeds[0].description)
+                    else:
+                        message_content = "No content"
                     data = {
                         "embeds": [{
                             "title": "Giveaway Joined!",
-                            "description": f"**Message content**: `{message.content[:500]}`\n**Giveaway Server**: `{message.guild}`\n**Channel**: `#{message.channel}`",
+                            "description": f"**Message content**: `{message_content}`\n**Giveaway Server**: `{message.guild}`\n**Channel**: `#{message.channel}`\n**Bot**: `{message.author.name}`",
                             "url": message.jump_url,
                             "color": 3407667
                             }],
