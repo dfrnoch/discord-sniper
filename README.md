@@ -24,6 +24,7 @@
 ## News in v3:
 - Replaced [discord.py](https://github.com/Rapptz/discord.py) with [discord.py-self](https://github.com/dolfies/discord.py-self) (workaround for Discord API changes)
 - Removed Windows Notifications for multi-OS support (might be added back in the future)
+- Fix embed interactions (All bots should be working now)
 - Cleaned up some of the redundant code
 
 - *Plans: Support to more giveaway bots, Limited invite sniper, Adding more tokens, Optimalization*
