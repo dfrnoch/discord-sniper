@@ -251,16 +251,18 @@ async def on_message(message):
                           f"\n{Fore.RED}{time} - Couldn't React to Giveaway" + Fore.RESET)
                     GiveawayInfo(elapsed)
                 if webhooknotification:
-                    if message.content:
-                        message_content = message.content.replace("`", "").replace("\\", "")[:500]
-                    elif message.embeds:
-                        message_content = str(message.embeds[0].title) + "\n" + str(message.embeds[0].description)
+                    if message.content and message.embeds:
+                        message_content = "`" + message.content.replace("`", "").replace("\\", "")[:500] + "`" + "\n" + "***Message Embed***: " + "`" + str(message.embeds[0].title) + "\n" + str(message.embeds[0].description).replace("`", "").replace("\\", "")[:500] + "`"
+                    elif message.embeds and not message.content:
+                        message_content = "Empty Message\n" + "***Message Embed***: " + "`" + str(message.embeds[0].title) + "\n" + str(message.embeds[0].description).replace("`", "").replace("\\", "")[:500] + "`"
+                    elif message.content and not message.embeds:
+                        message_content = "`" + message.content.replace("`", "").replace("\\", "")[:500] + "`"
                     else:
                         message_content = "No content"
                     data = {
                         "embeds": [{
                             "title": "Giveaway Joined!",
-                            "description": f"**Message content**: `{message_content}`\n**Giveaway Server**: `{message.guild}`\n**Channel**: `#{message.channel}`\n**Bot**: `{message.author.name}`",
+                            "description": f"**Message content**:\n {message_content}\n**Giveaway Server**: `{message.guild}`\n**Channel**: `#{message.channel}`\n**Bot**: `{message.author.name}`",
                             "url": message.jump_url,
                             "color": 3407667
                             }],
@@ -278,10 +280,18 @@ async def on_message(message):
                 elapsed = "-"
                 GiveawayInfo(elapsed)
                 if webhooknotification:
+                    if message.content and message.embeds:
+                        message_content = "`" + message.content.replace("`", "").replace("\\", "")[:500] + "`" + "\n" + "***Message Embed***: " + "`" + str(message.embeds[0].title) + "\n" + str(message.embeds[0].description).replace("`", "").replace("\\", "")[:500] + "`"
+                    elif message.embeds and not message.content:
+                        message_content = "Empty Message\n" + "***Message Embed***: " + "`" + str(message.embeds[0].title) + "\n" + str(message.embeds[0].description).replace("`", "").replace("\\", "")[:500] + "`"
+                    elif message.content and not message.embeds:
+                        message_content = "`" + message.content.replace("`", "").replace("\\", "")[:500] + "`"
+                    else:
+                        message_content = "No content"
                     data = {
                         "embeds": [{
                             "title": "Giveaway Won!",
-                            "description": f"**Message content**: `{message.content[:500]}`\n**Giveaway Server**: `{message.guild}`\n**Channel**: `#{message.channel}`",
+                            "description": f"**Message content**:\n {message_content}\n**Giveaway Server**: `{message.guild}`\n**Channel**: `#{message.channel}`",
                             "url": message.jump_url,
                             "color": 16732345
                             }],
