@@ -1,3 +1,5 @@
+To make this work again refer to issue [#42](https://github.com/lnxcz/discord-sniper/issues/42)
+
 <h1 align="center">💫 Discord Multi Sniper V2 💫</h1>
 <h3 align="center">Nitro, Giveaway, Privnote Sniper. Usually snipes in 10 - 50ms</h3>
 <h4 align="center">⭐ Don't forget to leave a star! ⭐</h4>
