@@ -4,6 +4,7 @@
 <h4 align="center" style="color: green;">Fork updated regularly</h4>
 
 ## Features:
+
 - Added giveaway botlist, fixed webhooks
 - Nitro, Giveaway, Privnote sniper
 - Giveaway join delay
@@ -11,6 +12,7 @@
 - Support on alt account
 
 ## News in v2:
+
 - Added giveaway join delay
 - Added Support to more giveaway bots
 - Fixed Privnote Sniper
@@ -22,26 +24,29 @@
 - If you have enable nitro reedem on other account or delay, it will show you on main page
 
 ## News in v3:
+
 - Replaced [discord.py](https://github.com/Rapptz/discord.py) with [discord.py-self](https://github.com/dolfies/discord.py-self) (workaround for Discord API changes)
 - Removed Windows Notifications for multi-OS support (might be added back in the future)
 - Fix embed interactions (All bots should be working now)
 - Cleaned up some of the redundant code
 
-- *Plans: Support to more giveaway bots, Limited invite sniper, Adding more tokens, Optimalization*
+- _Plans: Support to more giveaway bots, Limited invite sniper, Adding more tokens, Optimalization_
 
 / You can recommend what to add in Issues! \
 
-
 ## Usage:
+
 1. Config settings and token in `config.json`
-2. Open install.bat or install.sh
+2. Open install.bat or install.sh (It is preferable to use a [virtual environment](https://docs.python.org/3/library/venv.html), due to the conflict between regular discord.py and discord.py-self)
 3. Open launch.bat or launch.sh
 4. All set :)
 
 ## Settings:
+
 ![Settings Showcase](https://i.imgur.com/Bxe3s1Q.png)
 
 ## Showcase:
+
 ![Showcase](https://i.imgur.com/iEq1pLO.png)
 
 `WARN: Using a selfbot is against TOS, It's not my fault if you get a ban when someone reports you`

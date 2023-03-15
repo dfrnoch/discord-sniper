@@ -1,5 +1,5 @@
 @echo off
 cls
 title Discord Sniper - Loading
-python Main.py
+python main.py
 pause
