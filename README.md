@@ -1,19 +1,18 @@
-To make this work again refer to issue [#42](https://github.com/lnxcz/discord-sniper/issues/42)
-
-<h1 align="center">💫 Discord Multi Sniper V2 💫</h1>
+<h1 align="center">💫 Discord Multi Sniper V3 💫</h1>
 <h3 align="center">Nitro, Giveaway, Privnote Sniper. Usually snipes in 10 - 50ms</h3>
 <h4 align="center">⭐ Don't forget to leave a star! ⭐</h4>
-<h4 align="center" style="color: red;">Some code changes before v3, sniper should be faster</h4>
+<h4 align="center" style="color: green;">Fork updated regularly</h4>
 
 ## Features:
+
 - Added giveaway botlist, fixed webhooks
 - Nitro, Giveaway, Privnote sniper
 - Giveaway join delay
-- Windows notification
 - Webhook notifications (Thanks to [@rondDev](https://github.com/rondDev))
 - Support on alt account
 
 ## News in v2:
+
 - Added giveaway join delay
 - Added Support to more giveaway bots
 - Fixed Privnote Sniper
@@ -24,21 +23,30 @@ To make this work again refer to issue [#42](https://github.com/lnxcz/discord-sn
 - Removed some useless code
 - If you have enable nitro reedem on other account or delay, it will show you on main page
 
-- *Plans: Support to more giveaway bots, Limited invite sniper, Adding more tokens, Optimalization*
+## News in v3:
+
+- Replaced [discord.py](https://github.com/Rapptz/discord.py) with [discord.py-self](https://github.com/dolfies/discord.py-self) (workaround for Discord API changes)
+- Removed Windows Notifications for multi-OS support (might be added back in the future)
+- Fix embed interactions (All bots should be working now)
+- Cleaned up some of the redundant code
+
+- _Plans: Support to more giveaway bots, Limited invite sniper, Adding more tokens, Optimalization_
 
 / You can recommend what to add in Issues! \
 
-
 ## Usage:
+
 1. Config settings and token in `config.json`
-2. Open install.bat
-3. Open start.bat
+2. Open install.bat or install.sh (It is preferable to use a [virtual environment](https://docs.python.org/3/library/venv.html), due to the conflict between regular discord.py and discord.py-self)
+3. Open launch.bat or launch.sh
 4. All set :)
 
 ## Settings:
+
 ![Settings Showcase](https://i.imgur.com/Bxe3s1Q.png)
 
 ## Showcase:
+
 ![Showcase](https://i.imgur.com/iEq1pLO.png)
 
 `WARN: Using a selfbot is against TOS, It's not my fault if you get a ban when someone reports you`
