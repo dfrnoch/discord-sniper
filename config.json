@@ -3,6 +3,7 @@
   "on_alt": false,
   "reedem_token": "your-token",
   "webhook_notification": true,
+  "sound_notification": true,
   "webhook": "",
   "delay_enabled": true,
   "delay": 5,
