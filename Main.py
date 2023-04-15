@@ -192,10 +192,11 @@ async def on_message(message):
                                   f"\n{Fore.RED}{time} - Nitro is Already Redeemed" + Fore.RESET)
                             NitroInfo(elapsed, code)
                         elif 'subscription_plan' in r:
-                            try:
-                                playsound("./sounds/success.wav")
-                            except: 
-                                pass
+                            if sound_notification == True:
+                                try:
+                                    playsound("./sounds/success.wav")
+                                except: 
+                                    pass
                             
                             print(""
                                   f"\n{Fore.GREEN}{time} - Nitro Successfuly Claimed!" + Fore.RESET)
