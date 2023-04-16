@@ -8,6 +8,7 @@ import discord
 import os
 import pyPrivnote as pn
 from colorama import Fore
+from playsound import playsound
 from discord.ext import (
     commands
 )
@@ -27,6 +28,7 @@ nitro_sniper = config.get('nitro_sniper')
 privnote_sniper = config.get('privnote_sniper')
 airdrop_sniper = config.get("airdrop_sniper")
 webhooknotification = config.get('webhook_notification')
+sound_notification = config.get('sound_notification')
 webhook = config.get('webhook')
 botlist = config.get('bot_list')
 altlist = config.get('alt_list')
@@ -190,6 +192,12 @@ async def on_message(message):
                                   f"\n{Fore.RED}{time} - Nitro is Already Redeemed" + Fore.RESET)
                             NitroInfo(elapsed, code)
                         elif 'subscription_plan' in r:
+                            if sound_notification == True:
+                                try:
+                                    playsound("./sounds/success.wav")
+                                except: 
+                                    pass
+                            
                             print(""
                                   f"\n{Fore.GREEN}{time} - Nitro Successfuly Claimed!" + Fore.RESET)
                             NitroInfo(elapsed, code)
