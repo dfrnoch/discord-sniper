@@ -2,3 +2,4 @@ discord.py-self
 colorama
 requests
 pyPrivnote
+playsound
