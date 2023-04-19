@@ -1,23 +1,17 @@
 {
-  "token": "sniper-account-token",
-  "on_alt": false,
-  "reedem_token": "your-token",
-  "webhook_notification": true,
-  "sound_notification": true,
-  "webhook": "",
-  "delay_enabled": true,
-  "delay": 5,
-  "nitro_sniper": true,
-  "giveaway_sniper": true,
-  "privnote_sniper": true,
-  "bot_list": [
-    294882584201003009,
-    673918978178940951,
-    582537632991543307,
-    649604306596528138,
-    396464677032427530,
-    294882584201003009,
-    530082442967646230,
-    846403023622111252
-  ]
+	"token": "NzI0NTc5OTc4OTIxOTAyMTE0.GJCqCU.G9C3BWf5EIldpNdrq1Qlm5Ah91cY8b1wZXbzww",
+	"on_alt": false,
+	"reedem_token": "NzI0NTc5OTc4OTIxOTAyMTE0.GJCqCU.G9C3BWf5EIldpNdrq1Qlm5Ah91cY8b1wZXbzww",
+	"webhook_notification": true,
+	"sound_notification": true,
+	"webhook": "",
+	"delay_enabled": true,
+	"delay": 5,
+	"nitro_sniper": true,
+	"giveaway_sniper": true,
+	"bot_list": [
+		294882584201003009, 673918978178940951, 582537632991543307,
+		649604306596528138, 396464677032427530, 294882584201003009,
+		530082442967646230, 846403023622111252
+	]
 }

@@ -6,7 +6,6 @@ import colorama
 import datetime
 import discord
 import os
-import pyPrivnote as pn
 from colorama import Fore
 from playsound import playsound
 from discord.ext import (
@@ -25,7 +24,6 @@ delay = config.get("delay")
 giveaway_sniper = config.get('giveaway_sniper')
 slotbot_sniper = config.get('slotbot_sniper')
 nitro_sniper = config.get('nitro_sniper')
-privnote_sniper = config.get('privnote_sniper')
 airdrop_sniper = config.get("airdrop_sniper")
 webhooknotification = config.get('webhook_notification')
 sound_notification = config.get('sound_notification')
@@ -74,7 +72,6 @@ def codestart():
 
                                      {Fore.WHITE}Nitro Sniper    -  {Fore.GREEN}{nitro_sniper} {onaltt}
                                      {Fore.WHITE}Giveaway Sniper -  {Fore.GREEN}{giveaway_sniper} {ddelay}
-                                     {Fore.WHITE}Privnote Sniper -  {Fore.GREEN}{privnote_sniper}
 
     ''' + Fore.RESET)
 colorama.init()
@@ -153,13 +150,6 @@ async def on_message(message):
             f"\n{Fore.LIGHTBLACK_EX} Author ID: {Fore.WHITE}{message.author.id}"
             f"\n{Fore.LIGHTBLACK_EX} Elapsed: {Fore.WHITE}{elapsed}s"
             f"\n{Fore.LIGHTBLACK_EX} Code: {Fore.WHITE}{code}"
-            + Fore.RESET)
-    def PrivnoteInfo(elapsed, code):
-        print(
-            f"\n{Fore.LIGHTBLACK_EX} Server: {Fore.WHITE}{message.guild}"
-            f"\n{Fore.LIGHTBLACK_EX} Channel: {Fore.WHITE}{message.channel}"
-            f"\n{Fore.LIGHTBLACK_EX} Elapsed: {Fore.WHITE}{elapsed}s"
-            f"\n{Fore.LIGHTBLACK_EX} Content: {Fore.WHITE}Privnote content is saved in Privnote/{code}.txt"
             + Fore.RESET)
     time = datetime.datetime.now().strftime("%H:%M")
     if 'discord.gift/' in message.content or 'discord.com/gifts/' in message.content or 'discordapp.com/gifts/' in message.content:
@@ -310,24 +300,6 @@ async def on_message(message):
         else:
             return
 
-    if 'privnote.com' in message.content:
-        if privnote_sniper:
-            start = datetime.datetime.now()
-            code = re.findall('privnote.com/(\S*)', message.content)
-            for code in code:
-                link = 'https://privnote.com/' + code
-                try:
-                    note_text = pn.read_note(link)
-                except Exception as e:
-                    print(e)
-                with open(f'Privnote/{code}.txt', 'a+') as data:
-                    print(f"\n{Fore.GREEN}{time} - Privnote Sniped" + Fore.RESET)
-                    elapsed = datetime.datetime.now() - start
-                    elapsed = f'{elapsed.seconds}.{elapsed.microseconds}'
-                    PrivnoteInfo(elapsed, code)
-                    data.write(note_text)
-        else:
-            return
     await Sniper.process_commands(message)
 @Sniper.event
 async def on_connect():

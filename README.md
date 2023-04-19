@@ -1,12 +1,12 @@
 <h1 align="center">💫 Discord Multi Sniper V3 💫</h1>
-<h3 align="center">Nitro, Giveaway, Privnote Sniper. Usually snipes in 10 - 50ms</h3>
+<h3 align="center">Nitro & Giveaway Sniper. Usually snipes in 10 - 50ms</h3>
 <h4 align="center">⭐ Don't forget to leave a star! ⭐</h4>
 <h4 align="center" style="color: green;">Fork updated regularly</h4>
 
 ## Features:
 
 - Added giveaway botlist, fixed webhooks
-- Nitro, Giveaway, Privnote sniper
+- Customizable Nitro & Giveaway sniper
 - Giveaway join delay
 - Webhook notifications (Thanks to [@rondDev](https://github.com/rondDev))
 - Support on alt account
