@@ -19,7 +19,7 @@
 - More info about Sniped Nitro
 - Added Webhook notifications (Thanks to [@rondDev](https://github.com/rondDev))
 - More customisability
-- Added **use on alt**, that means you can run sniper on alt account and if he snipes nitro, code will be reedemed on other account
+- Added **use on alt**, that means you can run sniper on alt account and if he snipes nitro, code will be redeemed on other account
 - Removed some useless code
 - If you have enable nitro reedem on other account or delay, it will show you on main page
 
@@ -30,9 +30,9 @@
 - Fix embed interactions (All bots should be working now)
 - Cleaned up some of the redundant code
 
-- _Plans: Support to more giveaway bots, Limited invite sniper, Adding more tokens, Optimalization_
+- _Plans: Support to more giveaway bots, Limited invite sniper, Adding more tokens,Optimisation_
 
-/ You can recommend what to add in Issues! \
+`You can recommend what to add in Issues!`
 
 ## Usage:
 
@@ -40,7 +40,7 @@
 2. Open install.bat or install.sh (It is preferable to use a [virtual environment](https://docs.python.org/3/library/venv.html), due to the conflict between regular discord.py and discord.py-self)
 3. Open launch.bat or launch.sh
 4. All set :)
-
+redeemed
 ## Settings:
 
 ![Settings Showcase](https://i.imgur.com/Bxe3s1Q.png)
@@ -49,4 +49,4 @@
 
 ![Showcase](https://i.imgur.com/iEq1pLO.png)
 
-`WARN: Using a selfbot is against TOS, It's not my fault if you get a ban when someone reports you`
+`WARNING: Using a selfbot is against Discord's TOS, It's not my fault if you get a ban when someone reports you`
