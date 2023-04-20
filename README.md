@@ -1,8 +1,7 @@
 <h1 align="center">💫 Discord Multi Sniper V3 💫</h1>
 <h3 align="center">Nitro & Giveaway Sniper. Usually snipes in 10 - 50ms</h3>
 <h4 align="center">⭐ Don't forget to leave a star! ⭐</h4>
-<h5 align="center" style="color: green;">ℹ️ Maintained by a community, pull requests are welcome and will be reviewed.</h4>
-
+jinh
 ## Features:
 
 - Added giveaway botlist, fixed webhooks
