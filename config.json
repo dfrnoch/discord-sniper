@@ -1,7 +1,7 @@
 {
-	"token": "NzI0NTc5OTc4OTIxOTAyMTE0.GJCqCU.G9C3BWf5EIldpNdrq1Qlm5Ah91cY8b1wZXbzww",
+	"token": "token",
 	"on_alt": false,
-	"reedem_token": "NzI0NTc5OTc4OTIxOTAyMTE0.GJCqCU.G9C3BWf5EIldpNdrq1Qlm5Ah91cY8b1wZXbzww",
+	"reedem_token": "token",
 	"webhook_notification": true,
 	"sound_notification": true,
 	"webhook": "",
