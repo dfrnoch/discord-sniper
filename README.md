@@ -50,3 +50,6 @@ redeemed
 ![Showcase](https://i.imgur.com/iEq1pLO.png)
 
 `WARNING: Using a selfbot is against Discord's TOS, It's not my fault if you get a ban when someone reports you`
+
+#### [Go back to the top of the page](https://github.com/lnxcz/discord-sniper#-discord-multi-sniper-v3-)
+
